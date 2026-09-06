@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shipment Tracking</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:#f4f6f8;
+  font-family:Arial,sans-serif;
+  color:#17202a;
+}
+.wrap{
+  max-width:720px;
+  margin:35px auto;
+  padding:18px;
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:28px;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+h1{margin:0 0 8px}
+.sub{color:#667085}
+.search{
+  display:flex;
+  gap:10px;
+  margin:22px 0;
+}
+.search input{
+  flex:1;
+  padding:14px;
+  border:1px solid #ccd2d8;
+  border-radius:8px;
+  font-size:16px;
+}
+.search button{
+  padding:14px 20px;
+  border:0;
+  border-radius:8px;
+  background:#1f2937;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+#result{display:none}
+.grid{
+  border-top:1px solid #e5e7eb;
+  margin-top:20px;
+}
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:14px 0;
+  border-bottom:1px solid #eee;
+}
+.label{color:#667085}
+
+.timeline{
+  margin-top:25px;
+  border-left:3px solid #d1d5db;
+  padding-left:18px;
+}
+.event{margin:0 0 20px}
+.event b{display:block}
+.event small{color:#667085}
+
+.notice{
+  margin-top:24px;
+  padding:12px;
+  background:#f8fafc;
+  border-radius:8px;
+  color:#667085;
+  font-size:13px;
+}
+
+@media(max-width:600px){
+  .search{display:block}
+  .search button{
+    width:100%;
+    margin-top:8px;
+  }
+  .row{display:block}
+  .row span:last-child{
+    display:block;
+    margin-top:5px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <div class="card">
+
+    <h1>Shipment Tracking</h1>
+    <p class="sub">
+      Enter the tracking reference to view the shipment record.
+    </p>
+
+    <div class="search">
+      <input
+        id="id"
+        value="LJ20260906001"
+        placeholder="Tracking reference"
+      >
+      <button onclick="track()">Track</button>
+    </div>
+
+    <div id="result">
+
+      <div class="grid">
+
+        <div class="row">
+          <span class="label">Tracking reference</span>
+          <strong>LJ20260906001</strong>
+        </div>
+
+        <div class="row">
+          <span class="label">Sender</span>
+          <span>Keanu Reeves</span>
+        </div>
+
+        <div class="row">
+          <span class="label">Receiver</span>
+          <span>Linda A. Kelley</span>
+        </div>
+
+        <div class="row">
+          <span class="label">Destination</span>
+          <span>
+            405 Seven Pines Court, Sandston,
+            VA 23150, USA
+          </span>
+        </div>
+
+        <div class="row">
+          <span class="label">Contents</span>
+          <span>Welding ring + rose flower</span>
+        </div>
+
+        <div class="row">
+          <span class="label">Declared amount</span>
+          <span>£60,000</span>
+        </div>
+
+      </div>
+
+      <div class="timeline">
+
+        <div class="event">
+          <b>Shipment record created</b>
+          <small>United Kingdom · 06 Sep 2026</small>
+        </div>
+
+        <div class="event">
+          <b>Processing</b>
+          <small>Shipment information recorded</small>
+        </div>
+
+        <div class="event">
+          <b>In transit</b>
+          <small>Awaiting the next recorded update</small>
+        </div>
+
+      </div>
+
+      <div class="notice">
+        Independent tracking page. This page is not operated by
+        or affiliated with DHL, FedEx, UPS, Royal Mail, or another courier.
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+function track() {
+  const value = document.getElementById("id").value.trim();
+  const result = document.getElementById("result");
+
+  if (value === "LJ20260906001") {
+    result.style.display = "block";
+  } else {
+    result.style.display = "none";
+    alert("Tracking reference not found.");
+  }
+}
+
+track();
+</script>
+
+</body>
+  </html>
